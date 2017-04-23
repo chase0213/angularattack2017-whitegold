@@ -1,5 +1,4 @@
 import { ApiInterface } from '../interfaces/api-interface';
-import { ExtDate } from 'extdate/lib/ExtDate';
 
 export class PlayerStatus implements ApiInterface {
   isMuted: boolean = false;
@@ -27,7 +26,7 @@ export class PlayerStatus implements ApiInterface {
     this.videoUrl = player.getVideoUrl();
     this.playlist = player.getPlaylist();
     this.playlistIndex = player.getPlaylistIndex();
-    this.createdAt = (new ExtDate()).unixTime();
+    this.createdAt = (new Date()).getTime();
   }
 
   fromJson(obj: any) {

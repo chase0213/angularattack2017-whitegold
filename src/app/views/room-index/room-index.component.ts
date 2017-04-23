@@ -13,7 +13,8 @@ import { Room } from '../../models/room.model';
 })
 export class RoomIndexComponent implements OnInit, OnDestroy {
 
-  private keyUp = new Subject<string>();
+  // Event
+  keyUp = new Subject<string>();
 
   keyword: string = '';
   rooms: Room[] = [];

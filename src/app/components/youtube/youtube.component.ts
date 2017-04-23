@@ -2,7 +2,6 @@ import { Component, OnInit, OnChanges, OnDestroy, Input, Output, EventEmitter } 
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { PlayerStatus } from '../../models/player-status.model';
-import { ExtDate } from 'extdate/lib/ExtDate';
 
 declare const YT;
 const RETRY_INTERVAL = 100; // msec
@@ -181,14 +180,14 @@ export class YoutubeComponent implements OnInit, OnChanges, OnDestroy {
 
     if (this.allowSync && !this.shouldUpdate) {
       let seektime = this.currentStatus.currentTime;
-      let now = new ExtDate();
+      let now = new Date()
 
       switch (this.currentStatus.playerState) {
         case YT.PlayerState.ENDED:
           seektime = 0;
           break;
         case YT.PlayerState.PLAYING:
-          seektime += (now.unixTime() - this.currentStatus.createdAt) / 1000 + this.loadingDelay;
+          seektime += (now.getTime() - this.currentStatus.createdAt) / 1000 + this.loadingDelay;
           if (seektime >= this.currentStatus.duration) {
             seektime = 0;
           }
