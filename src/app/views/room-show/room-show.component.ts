@@ -18,6 +18,7 @@ export class RoomShowComponent implements OnInit, OnDestroy, AfterViewInit {
   movieUrl: string;
   allowSync: boolean = true;
   shouldUpdate: boolean = false;
+  isAdmin: boolean = false;
   isAdmin$: Observable<boolean>;
   statusObservable$: Observable<PlayerStatus>;
   updateObservable$: Observable<PlayerStatus>;

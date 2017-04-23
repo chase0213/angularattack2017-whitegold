@@ -53,17 +53,14 @@ export class RoomService {
   isRoomAdmin(id: string): Observable<boolean> {
     return Observable.create(obs => {
       this.fs.firebase.auth().onAuthStateChanged((user) => {
-
         this.fs.database.ref('room/' + id).on('value', snapshot => {
           let room = snapshot.val();
-          if (user && user.uid === room.admin) {
+          if (user && room && user.uid === room.admin) {
             obs.next(true);
           } else {
             obs.next(false);
           }
-          obs.complete();
         });
-
       });
     });
   }
@@ -102,8 +99,6 @@ export class RoomService {
         } else {
           obs.error('Authentication required.');
         }
-
-        obs.complete();
       });
     });
   }

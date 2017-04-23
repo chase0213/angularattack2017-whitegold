@@ -178,7 +178,7 @@ export class YoutubeComponent implements OnInit, OnChanges, OnDestroy {
       return;
     }
 
-    if (this.allowSync && !this.shouldUpdate) {
+    if (this.currentStatus && this.currentStatus.createdAt && this.allowSync && !this.shouldUpdate) {
       let seektime = this.currentStatus.currentTime;
       let now = new Date()
 

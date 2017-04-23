@@ -6,12 +6,13 @@
       <md-icon>sync_disabled</md-icon>
       Async
     </button>
+
     <button *ngIf="!allowSync" md-raised-button color="primary" (click)="onClickSync($event)">
       <md-icon>sync</md-icon>
       Sync
     </button>
 
-    <button md-raised-button color="accent" routerLink="edit" [disabled]="!(isAdmin$ | async)">
+    <button *ngIf="isAdmin$ | async" md-raised-button color="accent" routerLink="edit">
       <md-icon>movie</md-icon>
       Edit
     </button>
