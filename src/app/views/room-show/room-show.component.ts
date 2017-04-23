@@ -23,6 +23,8 @@ export class RoomShowComponent implements OnInit, OnDestroy, AfterViewInit {
   statusObservable$: Observable<PlayerStatus>;
   updateObservable$: Observable<PlayerStatus>;
 
+  shareUrl: string = location.href;
+
   constructor(
     private _room: RoomService,
     private _route: ActivatedRoute,
@@ -68,15 +70,15 @@ export class RoomShowComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // !function(d,s,id){
-    //   var js, fjs = d.getElementsByTagName(s)[0];
-    //   if (!d.getElementById(id)) {
-    //     js = d.createElement(s);
-    //     js.id = id;
-    //     js.src = "https://platform.twitter.com/widgets.js";
-    //     fjs.parentNode.insertBefore(js,fjs);
-    //   }
-    // }(document, "script", "twitter-wjs");
+    !function(d,s,id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js,fjs);
+      }
+    }(document, "script", "twitter-wjs");
   }
 
 }

@@ -13,6 +13,9 @@ import { AuthService } from './services/auth.service';
 // guards
 import { AuthGuardService } from './guards/auth-guard.service';
 
+// 3rd party
+import {ShareButtonsModule} from 'ng2-sharebuttons';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RoomIndexComponent } from './views/room-index/room-index.component';
@@ -41,6 +44,7 @@ import { YoutubeComponent } from './components/youtube/youtube.component';
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
+    ShareButtonsModule.forRoot(),
   ],
   providers: [
     RoomService,

@@ -4,6 +4,15 @@
   </section>
 
   <nav class="action-buttons">
+    <share-buttons
+      [linkedIn]="false"
+      [pinterest]="false"
+      [stumbleUpOn]="false"
+      [reddit]="fasle"
+      [whatsApp]="false">
+    </share-buttons>
+
+
     <button *ngIf="allowSync" md-button color='primary' (click)="onClickAsync($event)">
       <md-icon>sync_disabled</md-icon>
       Async
