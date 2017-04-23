@@ -37,7 +37,7 @@
           </a>
         </li>
 
-        <li>
+        <li *ngIf="user$ | async">
           <a md-button [routerLink]="['/room', {q: (user$ | async)?.displayName}]" (click)="start.close()">
             <md-icon>account_box</md-icon>
             My Rooms

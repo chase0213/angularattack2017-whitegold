@@ -1,5 +1,7 @@
 <article>
-  <h2>{{ (room$ | async)?.name }}</h2>
+  <section>
+    <h1>{{ (room$ | async)?.name }}</h1>
+  </section>
 
   <nav class="action-buttons">
     <button *ngIf="allowSync" md-button color='primary' (click)="onClickAsync($event)">

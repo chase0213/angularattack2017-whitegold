@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'material-theme';
+@import 'variables';
 
 html, body {
   background: #f0f0f0;
   color: #5a4a50;
-  font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-family: $default-font;
   font-size: 16px;
   height: 100%;
   line-height: 1.7em;
@@ -14,6 +15,10 @@ html, body {
   padding: 0;
   position: relative;
   width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: $default-font;
 }
 
 * {

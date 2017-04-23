@@ -1,5 +1,8 @@
 <article>
-  <h2>Qnote</h2>
+  <section>
+    <h1>Qnote</h1>
+    <p>Qnote provides broadcasting service of videos (on YouTube, so far) to people who get into a page called "room" someone created.</p>
+  </section>
 
   <section>
     <h3>Search rooms to get into</h3>
@@ -41,9 +44,9 @@
 
   <section>
     <h3>Open a new room (login required)</h3>
+    <p *ngIf="!(isLoggedIn$ | async)">If you log in Qnote, you can open new rooms to broadcast your videos to the audience joined the room.</p>
 
     <div id="firebase-ui-container"></div>
-    <p *ngIf="!(isLoggedIn$ | async)">If you log in Qnote, you can open new rooms to broadcast your videos to the audience joined the room.</p>
 
     <nav *ngIf="isLoggedIn$ | async" class="full-width">
       <a md-raised-button color="accent" routerLink="room/new">
