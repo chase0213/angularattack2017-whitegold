@@ -4,7 +4,7 @@
     ".write": "false",
     "room": {
       "$room": {
-        ".write": "!data.child($room).exists() || data.child($room + '/admin').val() === auth.uid"
+        ".write": "auth !== null && (!data.exists() || data.child('admin').val() === auth.uid)"
       }
     }
   }
