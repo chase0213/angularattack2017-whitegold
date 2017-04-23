@@ -1,0 +1,31 @@
+<article>
+  <h2>Edit {{ room.name }}</h2>
+
+  <section>
+    <form #roomForm>
+      <md-input-container>
+        <input mdInput [(ngModel)]="room.name" name="room[name]" placeholder="name..." />
+      </md-input-container>
+
+      <md-input-container>
+        <input mdInput [(ngModel)]="room.description" name="room[description]" placeholder="short description..." />
+      </md-input-container>
+
+      <md-input-container>
+        <input mdInput [(ngModel)]="room.movieUrl" name="room[movieUrl]" placeholder="url for a movie..." />
+      </md-input-container>
+
+      <div class="action-buttons">
+        <button md-button (click)="onClickCancel($event)">Cancel</button>
+        <button md-raised-button color="primary" (click)="onClickSave($event)">Save</button>
+      </div>
+
+      <div class="separator">dangerous</div>
+
+      <div class="action-buttons">
+        <button md-button color="warn" (click)="onClickDelete($event)">Delete</button>
+      </div>
+    </form>
+
+  </section>
+</article>

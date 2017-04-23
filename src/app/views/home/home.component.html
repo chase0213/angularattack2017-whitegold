@@ -1,0 +1,55 @@
+<article>
+  <h2>Qnote</h2>
+
+  <section>
+    <h3>Search rooms to get into</h3>
+    <md-input-container>
+      <input mdInput type='search' [(ngModel)]="keyword" placeholder="search rooms...">
+      <span md-suffix (click)="onClickSearch($event)">
+        <md-icon>search</md-icon>
+      </span>
+    </md-input-container>
+
+    <nav class="full-width">
+      <button md-raised-button color="primary" (click)="onClickSearch($event)">
+        <md-icon>search</md-icon>
+        Search
+      </button>
+    </nav>
+
+    <h3>Recently Opned</h3>
+
+    <div class="card-container" *ngFor="let room of rooms$ | async">
+      <md-card *ngIf="room && room.id">
+        <md-card-header>
+          <img md-card-avatar alt="avatar of admin" src="{{room.adminPhotoUrl}}" />
+          <md-card-title>{{room.name}}</md-card-title>
+          <md-card-subtitle>{{room.adminName}}</md-card-subtitle>
+        </md-card-header>
+        <img md-card-image src="http://i.ytimg.com/vi/{{ room.videoId }}/default.jpg">
+        <md-card-content>
+          <p>
+            {{room.description}}
+          </p>
+        </md-card-content>
+        <md-card-actions>
+          <a md-raised-button color="primary" routerLink="/room/{{room.id}}">GET INTO</a>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </section>
+
+  <section>
+    <h3>Open a new room (login required)</h3>
+
+    <div id="firebase-ui-container"></div>
+    <p *ngIf="!(isLoggedIn$ | async)">If you log in Qnote, you can open new rooms to broadcast your videos to the audience joined the room.</p>
+
+    <nav *ngIf="isLoggedIn$ | async" class="full-width">
+      <a md-raised-button color="accent" routerLink="room/new">
+        <md-icon>class</md-icon>
+        Open a New Room
+      </a>
+    </nav>
+  </section>
+</article>

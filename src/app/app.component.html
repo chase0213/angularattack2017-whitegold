@@ -1,4 +1,69 @@
-<h1>
-  {{title}}
-</h1>
-<router-outlet></router-outlet>
+<md-sidenav-container>
+
+  <header #header>
+    <md-toolbar color="primary" class="fill-remaining-space">
+      <span class="menu-item menu-item-icon" (click)="start.toggle()">
+        <md-icon class="menu-opener">menu</md-icon>
+      </span>
+
+      <span class="menu-item logo">
+        <a routerLink="/">
+          <p class="title">
+            Qnote
+          </p>
+        </a>
+        <p class="shallow">
+         Broadcast Your Videos
+        </p>
+      </span>
+
+      <span class="menu-item menu-item-icon">
+      </span>
+    </md-toolbar>
+  </header>
+
+  <md-sidenav #start (open)="true">
+    <div class="sidenav-header">
+        <img [src]="(user$ | async)?.photoURL" alt="avatar image" />
+        <p>{{ (user$ | async)?.displayName }}</p>
+    </div>
+
+    <div class="sidenav-body">
+      <ul class="main-menu">
+        <li>
+          <a md-button routerLink="/" routerLinkActive="active" (click)="start.close()">
+            <md-icon>class</md-icon>
+            Rooms
+          </a>
+        </li>
+
+        <li>
+          <a md-button [routerLink]="['/room', {q: (user$ | async)?.displayName}]" (click)="start.close()">
+            <md-icon>account_box</md-icon>
+            My Rooms
+          </a>
+        </li>
+
+        <li *ngIf="!(user$ | async)">
+          <a md-button routerLink="/login" routerLinkActive="active" (click)="start.close()">
+            <md-icon>person_add</md-icon>
+            Login / Signup
+          </a>
+        </li>
+
+        <li *ngIf="user$ | async">
+          <a md-button href='#' (click)="onClickSignOut($event)" routerLinkActive="active" (click)="start.close()">
+            <md-icon>person_outline</md-icon>
+            Logout
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </md-sidenav>
+
+  <!-- primary content -->
+  <router-outlet></router-outlet>
+
+</md-sidenav-container>
+

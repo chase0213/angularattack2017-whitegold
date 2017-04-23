@@ -1,0 +1,36 @@
+<article>
+  <h2>{{ (room$ | async)?.name }}</h2>
+
+  <nav class="action-buttons">
+    <button *ngIf="allowSync" md-button color='primary' (click)="onClickAsync($event)">
+      <md-icon>sync_disabled</md-icon>
+      Async
+    </button>
+    <button *ngIf="!allowSync" md-raised-button color="primary" (click)="onClickSync($event)">
+      <md-icon>sync</md-icon>
+      Sync
+    </button>
+
+    <button md-raised-button color="accent" routerLink="edit" [disabled]="!(isAdmin$ | async)">
+      <md-icon>movie</md-icon>
+      Edit
+    </button>
+  </nav>
+
+  <section>
+    <app-youtube
+      [url]="movieUrl"
+      [roomId]="roomId"
+      [allowSync]="allowSync"
+      [shouldUpdate]="shouldUpdate"
+      [statusObservable$]="statusObservable$"
+      (changeStatus)="onChangeStatus($event)">
+    </app-youtube>
+
+    <h4>Room Description</h4>
+    <p>{{ (room$ | async)?.description }}</p>
+
+    <h4>Admin</h4>
+    <p>{{ (room$ | async)?.adminName }}</p>
+  </section>
+</article>

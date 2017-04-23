@@ -1,0 +1,38 @@
+.card-container {
+  display: inline-block;
+  width: 33%;
+  max-width: 420px;
+
+  @media (max-width: 420px) {
+    width: 100%;
+  }
+}
+
+md-card {
+  md-card-header {
+    height: 3em;
+
+    md-card-title {
+      margin: -8px 0 0;
+    }
+
+    img, md-card-subtitle {
+      margin: -4px 0 0;
+    }
+  }
+
+  md-card-actions {
+    a, button {
+      width: 100%;
+    }
+  }
+
+  md-card-content {
+    p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+    }
+  }
+}

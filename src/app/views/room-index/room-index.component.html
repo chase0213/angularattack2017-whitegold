@@ -1,0 +1,30 @@
+<article>
+  <section>
+    <md-input-container>
+      <input mdInput type='search' [(ngModel)]="keyword" (keyup)='keyUp.next($event)' placeholder="search rooms...">
+      <span md-suffix (click)="onClickSearch($event)">
+        <md-icon>search</md-icon>
+      </span>
+    </md-input-container>
+
+    <div class="card-container" *ngFor="let room of filtered">
+      <md-card *ngIf="room && room.id">
+        <md-card-header>
+          <img md-card-avatar alt="avatar of admin" src="{{room.adminPhotoUrl}}" />
+          <md-card-title>{{room.name}}</md-card-title>
+          <md-card-subtitle>{{room.adminName}}</md-card-subtitle>
+        </md-card-header>
+        <img md-card-image src="http://i.ytimg.com/vi/{{ room.videoId }}/default.jpg">
+        <md-card-content>
+          <p>
+            {{room.description}}
+          </p>
+        </md-card-content>
+        <md-card-actions>
+          <a md-raised-button color="primary" routerLink="/room/{{room.id}}">GET INTO</a>
+        </md-card-actions>
+      </md-card>
+    </div>
+
+  </section>
+</article>

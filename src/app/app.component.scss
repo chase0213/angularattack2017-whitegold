@@ -1,0 +1,147 @@
+header {
+  md-toolbar {
+    &.mat-primary {
+      background: #505050;
+    }
+
+    md-icon {
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .fill-remaining-space {
+      flex: 1 1 auto;
+    }
+
+    .menu-item-icon {
+      width: 24px;
+    }
+
+    .logo {
+      text-align: center;
+      width: 100%;
+
+      .title {
+        margin: 0;
+        margin-top: 8px;
+      }
+
+      .shallow {
+        font-size: .6em;
+        margin: 0;
+      }
+
+      a, a:hover, a:visited, a:link {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+footer {
+  background: #505050;
+  color: #ffffff;
+
+  section {
+    background: none;
+    font-size: .8em;
+    margin: 0;
+    padding: 1.4em;
+    width: 100%;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        a, a:link, a:visited, a:hover {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  .copyright-section {
+    box-sizing: border-box;
+
+    p {
+      margin: 0;
+      text-align: right;
+    }
+  }
+
+}
+
+md-sidenav-container {
+  height: 100%;
+}
+
+md-sidenav {
+  background: #ffffff;
+  min-width: 240px;
+  max-width: 60%;
+
+  ul {
+    // メニュー内で統一するために
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: .8em 0;
+    }
+
+    a, md-button, .headline {
+      height: 48px;
+      padding: .4em;
+      text-align: left;
+      width: 100%;
+    }
+
+    .headline {
+      display: inline-block;
+      line-height: 48px;
+    }
+
+    a.active {
+      color: #4285F4;
+    }
+
+    .sub-menu {
+      margin-left: 2em;
+
+      li {
+        font-size: .9em;
+        margin: .4em 0;
+      }
+    }
+
+  }
+
+  .sidenav-header {
+    background: #808080;
+    color: #ffffff;
+    height: 100px;
+    padding: 1.4em;
+
+    img {
+      background: #f0f0f0;
+      border-radius: 50%;
+      height: 48px;
+      margin: 0 0 2em;
+      width: 48px;
+    }
+
+    p {
+      font-size: .8em;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .sidenav-body {
+    padding: 1.4em;
+  }
+}
